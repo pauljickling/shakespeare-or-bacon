@@ -32,3 +32,5 @@ with open(TEXTFILE) as file:
 for i in word_list:
 	if i.isupper():
 		word_list.remove(i)
+	if i == '':
+		word_list.remove(i)
