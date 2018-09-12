@@ -1,5 +1,3 @@
-import re
-
 # parses a string into separates words, and appends them to a returned list
 def parse_words(str):
 	str = str + ' '
@@ -31,10 +29,6 @@ with open(TEXTFILE) as file:
 			for word in parsed:
 				word_list.append(word)
 
-print("First word list: ", word_list)
-
 for i in word_list:
 	if i.isupper():
 		word_list.remove(i)
-
-print("Second word list: ", word_list)
