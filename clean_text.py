@@ -1,3 +1,5 @@
+import json
+
 # parses a string into separates words, and appends them to a returned list
 def parse_words(str):
 	str = str + ' '
@@ -31,7 +33,7 @@ def add_words(textfile, arr):
 			for word in parsed:
 				if word.isupper() == False:
 					if word != '':
-						arr.append(word)
+						arr.append(word.lower())
 
 add_words(text_list[0], bacon_list)
 add_words(text_list[1], bacon_list)
@@ -40,15 +42,16 @@ add_words(text_list[3], bacon_list)
 add_words(text_list[4], shakespeare_list)
 add_words(text_list[5], bacon_list)
 
+shakespeare_json = {
+	"words": shakespeare_list
+}
 
-with open('filter_text/bacon_word_list.txt', 'w') as file:
-	file.write('[')
-	for i in bacon_list:
-		file.write("'" + i.lower() + "', ")
-	file.write(']')
+bacon_json = {
+	"words": bacon_list
+}
 
-with open('filter_text/shakespeare_word_list.txt', 'w') as file:
-	file.write('[')
-	for i in shakespeare_list:
-		file.write("'" + i.lower() + "', ")
-	file.write(']')
+with open('filter_text/shakespeare_word_list.json', 'w') as file:
+	json.dump(shakespeare_json, file)
+
+with open('filter_text/bacon_word_list.json', 'w') as file:
+	json.dump(bacon_json, file)
