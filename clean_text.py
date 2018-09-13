@@ -44,11 +44,11 @@ add_words(text_list[5], bacon_list)
 with open('filter_text/bacon_word_list.txt', 'w') as file:
 	file.write('[')
 	for i in bacon_list:
-		file.write(i.lower() + ", ")
+		file.write("'" + i.lower() + "', ")
 	file.write(']')
 
 with open('filter_text/shakespeare_word_list.txt', 'w') as file:
 	file.write('[')
 	for i in shakespeare_list:
-		file.write(i.lower() + ", ")
+		file.write("'" + i.lower() + "', ")
 	file.write(']')
