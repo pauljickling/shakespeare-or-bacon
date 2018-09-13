@@ -13,7 +13,7 @@ def parse_words(str):
 
 word_list = []
 
-TEXTFILE = "src_text/shakespeare.txt"
+TEXTFILE = "filter_text/shakespeare.txt"
 with open(TEXTFILE) as file:
 	for i, line in enumerate(file):
 		if i > 3000 and i < 3400:
@@ -34,3 +34,7 @@ for i in word_list:
 		word_list.remove(i)
 	if i == '':
 		word_list.remove(i)
+
+with open('filter_text/shakespeare_word_list.txt', 'w') as file:
+	for i in word_list:
+		file.write(i)
