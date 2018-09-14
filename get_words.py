@@ -1,4 +1,5 @@
-import json
+import csv
+from collections import Counter
 
 # parses a string into separates words, and appends them to a returned list
 def parse_words(str):
@@ -42,16 +43,17 @@ add_words(text_list[3], bacon_list)
 add_words(text_list[4], shakespeare_list)
 add_words(text_list[5], bacon_list)
 
-shakespeare_json = {
-	"words": shakespeare_list
-}
+s_counter = Counter(shakespeare_list)
+b_counter = Counter(bacon_list)
 
-bacon_json = {
-	"words": bacon_list
-}
+with open('filter_text/shakespeare.csv', 'w', newline='') as csvfile:
+	csvwriter = csv.writer(csvfile)
+	csvwriter.writerow(['word'] + ['frequency'])
+	for k, v in s_counter.items():
+		csvwriter.writerow([k] + [v])
 
-with open('filter_text/shakespeare_word_list.json', 'w') as file:
-	json.dump(shakespeare_json, file)
-
-with open('filter_text/bacon_word_list.json', 'w') as file:
-	json.dump(bacon_json, file)
+with open('filter_text/bacon.csv', 'w', newline='') as csvfile:
+	csvwriter = csv.writer(csvfile)
+	csvwriter.writerow(['word'] + ['frequency'])
+	for k, v  in b_counter.items():
+		csvwriter.writerow([k] + [v])

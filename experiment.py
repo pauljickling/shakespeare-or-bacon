@@ -1,4 +1,4 @@
-import json
+import csv
 import random
 import sys
 
@@ -46,7 +46,7 @@ class RegressionTest(object):
 		self.words = None
 		self.values = None
 
-	def load_json_file(self, json_file, limit=None):
+	def load_csv_file(self, csv_file, limit=None):
 		pass
 
 	def tests(self, folds):
