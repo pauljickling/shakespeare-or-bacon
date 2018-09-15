@@ -46,13 +46,25 @@ add_words(text_list[5], bacon_list)
 s_counter = Counter(shakespeare_list)
 b_counter = Counter(bacon_list)
 
-with open('filter_text/shakespeare.csv', 'w', newline='') as csvfile:
+with open('filter_text/shakespeare_words.csv', 'w', newline='') as csvfile:
+	csvwriter = csv.writer(csvfile)
+	csvwriter.writerow(['word'])
+	for i in shakespeare_list:
+		csvwriter.writerow([i])
+
+with open('filter_text/bacon_words.csv', 'w', newline='') as csvfile:
+	csvwriter = csv.writer(csvfile)
+	csvwriter.writerow(['word'])
+	for i in bacon_list:
+		csvwriter.writerow([i])
+
+with open('filter_text/shakespeare_count.csv', 'w', newline='') as csvfile:
 	csvwriter = csv.writer(csvfile)
 	csvwriter.writerow(['word'] + ['frequency'])
 	for k, v in s_counter.items():
 		csvwriter.writerow([k] + [v])
 
-with open('filter_text/bacon.csv', 'w', newline='') as csvfile:
+with open('filter_text/bacon_count.csv', 'w', newline='') as csvfile:
 	csvwriter = csv.writer(csvfile)
 	csvwriter.writerow(['word'] + ['frequency'])
 	for k, v  in b_counter.items():
