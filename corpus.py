@@ -12,10 +12,25 @@ text5 = books.words(fileids=['shakespeare.txt'])
 text6 = books.words(fileids=['the_advancement_of_learning.txt'])
 
 fdist1 = FreqDist(text1)
+fdist2 = FreqDist(text2)
+fdist3 = FreqDist(text3)
+fdist4 = FreqDist(text4)
 fdist5 = FreqDist(text5)
+fdist6 = FreqDist(text6)
 
 shakespeare_list = fdist5.hapaxes()
-bacon_list = fdist1.hapaxes()
+bacon_list1 = fdist1.hapaxes()
+bacon_list2 = fdist2.hapaxes()
+bacon_list3 = fdist3.hapaxes()
+bacon_list4 = fdist4.hapaxes()
+bacon_list6 = fdist6.hapaxes()
+
+bacon_set = set(bacon_list1 + bacon_list2 + bacon_list3 + bacon_list4 + bacon_list6)
+bacon_list = []
+
+for i in bacon_set:
+	bacon_list.append(i)
+
 shake_numless = []
 bacon_numless = []
 
